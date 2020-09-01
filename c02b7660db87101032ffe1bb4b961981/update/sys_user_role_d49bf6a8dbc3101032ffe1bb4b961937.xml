@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role">
+    <sys_user_role action="INSERT_OR_UPDATE">
+        <assignable_by/>
+        <can_delegate>true</can_delegate>
+        <description/>
+        <elevated_privilege>false</elevated_privilege>
+        <grantable>true</grantable>
+        <includes_roles/>
+        <name>x_26525_flow_maste.flow_master</name>
+        <requires_subscription>-1</requires_subscription>
+        <scoped_admin>false</scoped_admin>
+        <suffix>x_26525_flow_maste.flow_master</suffix>
+        <sys_class_name>sys_user_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-09-01 13:14:25</sys_created_on>
+        <sys_id>d49bf6a8dbc3101032ffe1bb4b961937</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_26525_flow_maste.flow_master</sys_name>
+        <sys_package display_value="Flow Master" source="x_26525_flow_maste">c02b7660db87101032ffe1bb4b961981</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
+        <sys_update_name>sys_user_role_d49bf6a8dbc3101032ffe1bb4b961937</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-09-01 13:14:25</sys_updated_on>
+    </sys_user_role>
+</record_update>
