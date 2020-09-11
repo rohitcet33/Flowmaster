@@ -9,17 +9,25 @@
         <name>Global POST</name>
         <operation_script><![CDATA[(function process( /*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     var v_request = request.body.data;
+	var responsejson={};
+	responsejson['status']='Fail';
     try {
-		var inputs = {};
-		inputs['request_json'] = JSON.stringify(v_request); // String 
-		inputs['opertaion'] = "POST"; // String 
-		var result = sn_fd.FlowAPI.getRunner().subflow('x_26525_flow_maste.flow_master_parent').inForeground().withInputs(inputs).run();
+		var ip = {};
+		ip['request_json'] = JSON.stringify(v_request); // String 
+		ip['opertaion'] = "POST"; 
+		var psf='x_26525_flow_maste.flow_master_parent';
+		var result = sn_fd.FlowAPI.getRunner().subflow(psf).inForeground().withInputs(ip).run();
 		var outputs = result.getOutputs();
-		var status = outputs['status']; // Choice
+		responsejson['status'] = outputs['status'];
+		responsejson['record'] = outputs['record'];
+		responsejson['message']=outputs['message'];
 	} catch (ex) {
 		var message = ex.getMessage();
-		gs.error(message);
+		responsejson['status']="Fail";
+		responsejson['record']='';
+		responsejson['message']=message;
 	}
+	response.setBody(responsejson);
 })(request, response);]]></operation_script>
         <operation_uri>/api/x_26525_flow_maste/global</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
@@ -43,14 +51,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-10 13:21:05</sys_created_on>
         <sys_id>e953552bdb03101032ffe1bb4b96191e</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_name>Global POST</sys_name>
         <sys_package display_value="Flow Master" source="x_26525_flow_maste">c02b7660db87101032ffe1bb4b961981</sys_package>
         <sys_policy/>
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_update_name>sys_ws_operation_e953552bdb03101032ffe1bb4b96191e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 11:12:25</sys_updated_on>
+        <sys_updated_on>2020-09-11 15:04:34</sys_updated_on>
         <web_service_definition display_value="Global">a023512bdb03101032ffe1bb4b9619ae</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
