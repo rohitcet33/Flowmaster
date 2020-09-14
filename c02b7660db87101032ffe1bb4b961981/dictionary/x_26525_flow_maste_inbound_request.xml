@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" label="Inbound Request" max_length="40" name="x_26525_flow_maste_inbound_request" sizeclass="7" type="collection">
-        <element attributes="encode_utf8=false" label="Flow Config" max_length="32" name="flow_config" reference="x_26525_flow_maste_flow_config" type="reference"/>
-        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="4000" name="notes" type="journal"/>
+    <element audit="true" label="Inbound Request" max_length="40" name="x_26525_flow_maste_inbound_request" sizeclass="48" type="collection">
+        <element attributes="encode_utf8=false" label="Flow Config" max_length="32" name="flow_config" read_only="true" reference="x_26525_flow_maste_flow_config" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Notes" max_length="4000" name="notes" read_only="true" type="journal"/>
         <element attributes="edge_encryption_enabled=true" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" read_only="true" type="string" use_dynamic_default="true"/>
-        <element attributes="edge_encryption_enabled=true" label="Process" max_length="40" name="process" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Request" max_length="4000" name="request" type="string"/>
-        <element attributes="edge_encryption_enabled=true" label="Response" max_length="4000" name="response" type="string"/>
-        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="string">
+        <element attributes="edge_encryption_enabled=true" label="Process" max_length="40" name="process" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Request" max_length="4000" name="request" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Response" max_length="4000" name="response" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" audit="true" choice="1" label="Status" max_length="40" name="status" read_only="true" type="string">
             <choice>
                 <element inactive_on_update="false" label="New" sequence="0" value="New"/>
                 <element inactive_on_update="false" label="In Progress" sequence="1" value="In Progress"/>
@@ -14,7 +14,7 @@
                 <element inactive_on_update="false" label="Fail" sequence="3" value="Fail"/>
             </choice>
         </element>
-        <element attributes="encode_utf8=false" label="Record" max_length="32" name="task" type="string"/>
+        <element attributes="encode_utf8=false" label="Record" max_length="32" name="task" read_only="true" type="string"/>
         <index name="index">
             <element name="flow_config"/>
         </index>

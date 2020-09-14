@@ -13,7 +13,7 @@
         <ih_action>false</ih_action>
         <internal_name>insert_by_encoded_query</internal_name>
         <label_cache>[{"name":"{{action.table_name}}","label":"action➛Table Name","type":"action","ref":""},{"name":"{{action.insert_query}}","label":"action➛Insert Query","type":"action","ref":""},{"name":"{{action.request_body}}","label":"action➛Request Body","type":"action","ref":""},{"name":"{{action.method}}","label":"action➛Method","type":"action","ref":""},{"name":"{{action._}}","label":"action➛","type":"action","ref":""},{"name":"{{action.flow_config}}","label":"action➛Flow Config","type":"action","ref":""},{"name":"{{action.config_table}}","label":"action➛Config Table","type":"action","ref":""},{"name":"{{action.config_table.sys_id}}","label":"action➛Config Table➛Sys ID","type":"action","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].variable}}","label":"step➛Script step➛variable","type":"step","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].sys_id}}","label":"step➛Script step➛SYS ID","type":"step","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].sid}}","label":"step➛Script step➛SID","type":"step","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].number}}","label":"step➛Script step➛Number","type":"step","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].status}}","label":"step➛Script step➛Status","type":"step","ref":""},{"name":"{{step[0379ad15-006c-4738-a33f-c2df8b365006].message}}","label":"step➛Script step➛Message","type":"step","ref":""}]</label_cache>
-        <latest_snapshot>88b672f7db87101032ffe1bb4b961927</latest_snapshot>
+        <latest_snapshot>ffa20a78db5bd01032ffe1bb4b96192e</latest_snapshot>
         <master_snapshot>86bca53bdb43101032ffe1bb4b9619d3</master_snapshot>
         <name>Insert/Update by Encoded Query</name>
         <natlang/>
@@ -26,7 +26,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>145b6db7db43101032ffe1bb4b961902</sys_id>
-        <sys_mod_count>105</sys_mod_count>
+        <sys_mod_count>115</sys_mod_count>
         <sys_name>Insert/Update by Encoded Query</sys_name>
         <sys_overrides/>
         <sys_package display_value="Flow Master" source="x_26525_flow_maste">c02b7660db87101032ffe1bb4b961981</sys_package>
@@ -34,7 +34,7 @@
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_update_name>sys_hub_action_type_definition_145b6db7db43101032ffe1bb4b961902</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:24</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:08</sys_updated_on>
         <system_level>false</system_level>
         <type/>
     </sys_hub_action_type_definition>
@@ -94,10 +94,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:49:41</sys_created_on>
         <sys_id>a69c253bdb43101032ffe1bb4b961943</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:20</sys_updated_on>
+        <sys_updated_on>2020-09-14 13:59:55</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=a69c253bdb43101032ffe1bb4b961943"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -136,9 +136,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:49:42</sys_created_on>
         <sys_id>fe9c253bdb43101032ffe1bb4b96195c</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:20</sys_updated_on>
+        <sys_updated_on>2020-09-14 13:59:55</sys_updated_on>
         <value>(function execute(inputs, outputs) {
 // ... code ...
   var variableJson = inputs.requestbody != '' ? JSON.parse(inputs.requestbody).body : '';
@@ -161,6 +161,7 @@
    outputs.message="Mandatory fields missing";
    }
   }else if(inputs.method == 'PUT'){
+    if(variableJson['number'] != '' &amp;&amp; variableJson['number'] != undefined){
     gr.get('number',variableJson['number']);
     for (var pkey in variableJson) {
       if(pkey != 'number')
@@ -175,6 +176,9 @@
    }else{
    outputs.message="Mandatory fields missing";
    }
+  }else{
+    outputs.message="Please provide number in JSON body to update record";
+  }
   }
   if(gr.number != '')
   outputs.sid=gr.number;
@@ -1629,10 +1633,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:49:41</sys_created_on>
         <sys_id>a69c253bdb43101032ffe1bb4b961943</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:20</sys_updated_on>
+        <sys_updated_on>2020-09-14 13:59:55</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=a69c253bdb43101032ffe1bb4b961943"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -1671,9 +1675,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:49:42</sys_created_on>
         <sys_id>fe9c253bdb43101032ffe1bb4b96195c</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:20</sys_updated_on>
+        <sys_updated_on>2020-09-14 13:59:55</sys_updated_on>
         <value>(function execute(inputs, outputs) {
 // ... code ...
   var variableJson = inputs.requestbody != '' ? JSON.parse(inputs.requestbody).body : '';
@@ -1696,6 +1700,7 @@
    outputs.message="Mandatory fields missing";
    }
   }else if(inputs.method == 'PUT'){
+    if(variableJson['number'] != '' &amp;&amp; variableJson['number'] != undefined){
     gr.get('number',variableJson['number']);
     for (var pkey in variableJson) {
       if(pkey != 'number')
@@ -1710,6 +1715,9 @@
    }else{
    outputs.message="Mandatory fields missing";
    }
+  }else{
+    outputs.message="Please provide number in JSON body to update record";
+  }
   }
   if(gr.number != '')
   outputs.sid=gr.number;
@@ -2681,17 +2689,17 @@
     <sys_hub_action_plan action="INSERT_OR_UPDATE">
         <action_id display_value="Insert/Update by Encoded Query">145b6db7db43101032ffe1bb4b961902</action_id>
         <plan>{"persistor":{"@class":".ChunkingPlanPersistor","table":"sys_hub_action_plan","id":"2ebce53bdb43101032ffe1bb4b96195b","name":"plan"}}</plan>
-        <snapshot>88b672f7db87101032ffe1bb4b961927</snapshot>
+        <snapshot>ffa20a78db5bd01032ffe1bb4b96192e</snapshot>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:50:13</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2ebce53bdb43101032ffe1bb4b96195b</sys_id>
-        <sys_mod_count>17</sys_mod_count>
+        <sys_mod_count>19</sys_mod_count>
         <sys_overrides/>
         <sys_scope/>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:26</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:11</sys_updated_on>
     </sys_hub_action_plan>
     <sys_hub_action_type_snapshot action="INSERT_OR_UPDATE">
         <access>public</access>
@@ -2785,10 +2793,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:50:12</sys_created_on>
         <sys_id>c2bca53bdb43101032ffe1bb4b9619e2</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:24</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:08</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c2bca53bdb43101032ffe1bb4b9619e2"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -2813,9 +2821,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:50:12</sys_created_on>
         <sys_id>9ebca53bdb43101032ffe1bb4b9619fb</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:24</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:08</sys_updated_on>
         <value>(function execute(inputs, outputs) {
 // ... code ...
   var variableJson = inputs.requestbody != '' ? JSON.parse(inputs.requestbody).body : '';
@@ -2838,6 +2846,7 @@
    outputs.message="Mandatory fields missing";
    }
   }else if(inputs.method == 'PUT'){
+    if(variableJson['number'] != '' &amp;&amp; variableJson['number'] != undefined){
     gr.get('number',variableJson['number']);
     for (var pkey in variableJson) {
       if(pkey != 'number')
@@ -2852,6 +2861,9 @@
    }else{
    outputs.message="Mandatory fields missing";
    }
+  }else{
+    outputs.message="Please provide number in JSON body to update record";
+  }
   }
   if(gr.number != '')
   outputs.sid=gr.number;
@@ -4296,10 +4308,10 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:50:12</sys_created_on>
         <sys_id>c2bca53bdb43101032ffe1bb4b9619e2</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>18</sys_mod_count>
         <sys_scope display_value="Flow Master">c02b7660db87101032ffe1bb4b961981</sys_scope>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:24</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:08</sys_updated_on>
     </sys_hub_step_instance>
     <sys_variable_value action="delete_multiple" query="document_key=c2bca53bdb43101032ffe1bb4b9619e2"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
@@ -4324,9 +4336,9 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-09-11 09:50:12</sys_created_on>
         <sys_id>9ebca53bdb43101032ffe1bb4b9619fb</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>17</sys_mod_count>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-09-11 15:13:24</sys_updated_on>
+        <sys_updated_on>2020-09-14 14:00:08</sys_updated_on>
         <value>(function execute(inputs, outputs) {
 // ... code ...
   var variableJson = inputs.requestbody != '' ? JSON.parse(inputs.requestbody).body : '';
@@ -4349,6 +4361,7 @@
    outputs.message="Mandatory fields missing";
    }
   }else if(inputs.method == 'PUT'){
+    if(variableJson['number'] != '' &amp;&amp; variableJson['number'] != undefined){
     gr.get('number',variableJson['number']);
     for (var pkey in variableJson) {
       if(pkey != 'number')
@@ -4363,6 +4376,9 @@
    }else{
    outputs.message="Mandatory fields missing";
    }
+  }else{
+    outputs.message="Please provide number in JSON body to update record";
+  }
   }
   if(gr.number != '')
   outputs.sid=gr.number;
